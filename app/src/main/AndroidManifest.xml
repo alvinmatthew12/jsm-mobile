@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jsm_project">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/jsm_icon"
@@ -10,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Customer.CustomerActivity"></activity>
+        <activity android:name=".Customer.EditCustomerActivity"></activity>
+        <activity android:name=".Customer.AddCustomerActivity" />
+        <activity android:name=".Shipper.ShipperActivity" />
+        <activity android:name=".Customer.CustomerActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".Login.Login">
             <intent-filter>
@@ -22,5 +27,4 @@
         <activity android:name=".MainActivity" />
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

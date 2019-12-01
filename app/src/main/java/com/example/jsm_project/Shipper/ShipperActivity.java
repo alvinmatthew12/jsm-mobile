@@ -1,17 +1,11 @@
-package com.example.jsm_project.Customer;
+package com.example.jsm_project.Shipper;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -28,49 +22,33 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
-    private static final String API_GET="http://batam.shop/api_5psi/lastminute/jsm-api/api/v1/Customer.php?method=get";
+public class ShipperActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+    private static final String API_GET="http://batam.shop/api_5psi/lastminute/jsm-api/api/v1/Shipper.php?method=get";
 
     private Context context;
-    ListView lvCustomer;
-    List<Customer> customerList;
+    ListView lvShipper;
+    List<Shipper> shipperList;
 
-    List<Customer> customerArray;
-    CustomerAdapter adapter;
+    List<Shipper> shipperArray;
+    ShipperAdapter adapter;
     SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer);
+        setContentView(R.layout.activity_shipper);
 
-        lvCustomer = findViewById(R.id.lvCustomer);
-        customerList = new ArrayList<Customer>();
-        getCustomer();
+        lvShipper = findViewById(R.id.lvShipper);
+        shipperList = new ArrayList<Shipper>();
+        getShipper();
 
-        lvCustomer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), EditCustomerActivity.class);
-                intent.putExtra("id", customerList.get(position).getId());
-                intent.putExtra("name", customerList.get(position).getCustomerName());
-                intent.putExtra("address", customerList.get(position).getCustomerAddress());
-                intent.putExtra("contact_no", customerList.get(position).getCustomerContact());
-                intent.putExtra("city", customerList.get(position).getCustomerCity());
-                intent.putExtra("country", customerList.get(position).getCustomerCountry());
-
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        searchView = findViewById(R.id.srcCustomer);
+        searchView = findViewById(R.id.srcShipper);
         searchView.setIconified(false);
         searchView.setIconifiedByDefault(true);
 
-        customerArray = new ArrayList<Customer>();
-        adapter = new CustomerAdapter(this, customerList);
-        lvCustomer.setAdapter(adapter);
+        shipperArray = new ArrayList<Shipper>();
+        adapter = new ShipperAdapter(this, shipperList);
+        lvShipper.setAdapter(adapter);
         searchView.setOnQueryTextListener(this);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -81,30 +59,19 @@ public class CustomerActivity extends AppCompatActivity implements SearchView.On
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                customerList.clear();
-                for (Customer customer: customerArray){
-                    if (customer.getCustomerName().contains(newText)) {
-                        customerList.add(customer);
+                shipperList.clear();
+                for (Shipper shipper: shipperArray){
+                    if (shipper.getShipperName().contains(newText)) {
+                        shipperList.add(shipper);
                     }
                 }
                 adapter.notifyDataSetChanged();
                 return true;
             }
         });
-
-        Button btn_add = findViewById(R.id.btn_add_customer);
-        btn_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AddCustomerActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
     }
 
-    public void getCustomer() {
+    public void getShipper() {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET, API_GET, null, new Response.Listener<JSONArray>() {
@@ -113,7 +80,7 @@ public class CustomerActivity extends AppCompatActivity implements SearchView.On
                 try {
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject jsonObject = response.getJSONObject(i);
-                        Customer customer = new Customer(
+                        Shipper shipper = new Shipper(
                                 jsonObject.getInt("id"),
                                 jsonObject.getString("name"),
                                 jsonObject.getString("address"),
@@ -121,11 +88,11 @@ public class CustomerActivity extends AppCompatActivity implements SearchView.On
                                 jsonObject.getString("city"),
                                 jsonObject.getString("country")
                         );
-                        customerList.add(customer);
-                        customerArray.add(customer);
+                        shipperList.add(shipper);
+                        shipperArray.add(shipper);
                     }
-                    CustomerAdapter customerAdapter = new CustomerAdapter(getApplicationContext(), customerList);
-                    lvCustomer.setAdapter(customerAdapter);
+                    ShipperAdapter customerAdapter = new ShipperAdapter(getApplicationContext(), shipperList);
+                    lvShipper.setAdapter(customerAdapter);
                 } catch (Exception e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -150,7 +117,7 @@ public class CustomerActivity extends AppCompatActivity implements SearchView.On
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        if(customerList.contains(newText)){
+        if(shipperList.contains(newText)){
             adapter.getFilter().filter(newText);
         }
         return true;

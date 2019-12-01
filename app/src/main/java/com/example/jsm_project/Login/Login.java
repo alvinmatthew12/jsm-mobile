@@ -40,9 +40,9 @@ public class Login extends AppCompatActivity {
         if (user.equals("admin") && pass.equals("jambisukses")) {
             startActivity(new Intent(Login.this, HomeActivity.class));
             finish();
-            Toast.makeText(this, "Selamat Datang Admin", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Welcome Admin", Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(this, "Username atau Password Salah", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Username or Password Invalid", Toast.LENGTH_LONG).show();
         }
     }
 }

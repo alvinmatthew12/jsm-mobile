@@ -30,24 +30,22 @@ class CustomerAdapter extends ArrayAdapter<Customer> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View listViewCustomer = layoutInflater.inflate(R.layout.customer_card,null,true);
+
         TextView customerName = listViewCustomer.findViewById(R.id.txtCustomerName);
         TextView customerAddress = listViewCustomer.findViewById(R.id.txtCustomerAddress);
         TextView customerContact = listViewCustomer.findViewById(R.id.txtCustomerContact);
         TextView customerCity = listViewCustomer.findViewById(R.id.txtCustomerCity);
         TextView customerCountry = listViewCustomer.findViewById(R.id.txtCustomerCountry);
 
-
         Customer customerdata = customerList.get(position);
+
         customerName.setText(customerdata.getCustomerName());
         customerContact.setText(customerdata.getCustomerContact());
         customerAddress.setText(customerdata.getCustomerAddress());
         customerCity.setText(customerdata.getCustomerCity());
         customerCountry.setText(customerdata.getCustomerCountry());
 
-
         return listViewCustomer;
-
-
     }
 
 }
