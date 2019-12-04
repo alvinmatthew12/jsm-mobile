@@ -83,7 +83,8 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="28dp"
-                android:background="@drawable/edit" />
+                android:background="@drawable/edit"
+                android:focusable="true"/>
 
             <Button
                 android:id="@+id/btn_delete"

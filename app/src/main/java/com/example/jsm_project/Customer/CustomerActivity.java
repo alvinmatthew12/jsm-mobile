@@ -48,21 +48,6 @@ public class CustomerActivity extends AppCompatActivity implements SearchView.On
         customerList = new ArrayList<Customer>();
         getCustomer();
 
-        lvCustomer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), EditCustomerActivity.class);
-                intent.putExtra("id", customerList.get(position).getId());
-                intent.putExtra("name", customerList.get(position).getCustomerName());
-                intent.putExtra("address", customerList.get(position).getCustomerAddress());
-                intent.putExtra("contact_no", customerList.get(position).getCustomerContact());
-                intent.putExtra("city", customerList.get(position).getCustomerCity());
-                intent.putExtra("country", customerList.get(position).getCustomerCountry());
-
-                startActivity(intent);
-                finish();
-            }
-        });
 
         searchView = findViewById(R.id.srcCustomer);
         searchView.setIconified(false);
@@ -98,7 +83,7 @@ public class CustomerActivity extends AppCompatActivity implements SearchView.On
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AddCustomerActivity.class);
                 startActivity(intent);
-                finish();
+
             }
         });
 

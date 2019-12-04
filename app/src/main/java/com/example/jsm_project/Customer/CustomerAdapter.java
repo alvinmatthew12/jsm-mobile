@@ -1,10 +1,12 @@
 package com.example.jsm_project.Customer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,7 +29,7 @@ class CustomerAdapter extends ArrayAdapter<Customer> {
     }
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View listViewCustomer = layoutInflater.inflate(R.layout.customer_card,null,true);
 
@@ -45,6 +47,23 @@ class CustomerAdapter extends ArrayAdapter<Customer> {
         customerCity.setText(customerdata.getCustomerCity());
         customerCountry.setText(customerdata.getCustomerCountry());
 
+
+        Button btn_edit_customer = listViewCustomer.findViewById(R.id.btn_edit);
+        btn_edit_customer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = getContext();
+                Intent intent = new Intent(context, EditCustomerActivity.class);
+                intent.putExtra("id", customerList.get(position).getId());
+                intent.putExtra("name", customerList.get(position).getCustomerName());
+                intent.putExtra("address", customerList.get(position).getCustomerAddress());
+                intent.putExtra("contact_no", customerList.get(position).getCustomerContact());
+                intent.putExtra("city", customerList.get(position).getCustomerCity());
+                intent.putExtra("country", customerList.get(position).getCustomerCountry());
+                context.startActivity(intent);
+
+            }
+        });
         return listViewCustomer;
     }
 
