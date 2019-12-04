@@ -35,7 +35,6 @@ public class HomeActivity extends AppCompatActivity {
                         Login.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -44,7 +43,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent (HomeActivity.this, CustomerActivity.class);
                 startActivity(i);
-                finish();
+
             }
         });
 
@@ -53,7 +52,6 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent (HomeActivity.this, ShipperActivity.class);
                 startActivity(i);
-                finish();
             }
         });
     }

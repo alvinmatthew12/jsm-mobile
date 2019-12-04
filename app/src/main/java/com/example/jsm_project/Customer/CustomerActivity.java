@@ -14,11 +14,13 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.jsm_project.R;
 
@@ -26,10 +28,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CustomerActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
-    private static final String API_GET="http://batam.shop/api_5psi/lastminute/jsm-api/api/v1/Customer.php?method=get";
+       private static final String API_GET="http://www.jambisuksesmandiri.erwinkho.com/jsm-api/api/v1/Customer.php?method=get&type=all";
+//    private static final String API_DLT="http://batam.shop/api_5psi/lastminute/jsm-api/api/v1/Customer.php?method=post";
 
     private Context context;
     ListView lvCustomer;
@@ -127,6 +132,8 @@ public class CustomerActivity extends AppCompatActivity implements SearchView.On
         );
         requestQueue.add(jsonArrayRequest);
     }
+
+
 
     @Override
     public boolean onQueryTextSubmit(String query) {

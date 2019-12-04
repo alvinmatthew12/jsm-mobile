@@ -10,7 +10,8 @@ import com.example.jsm_project.R;
 
 public class EditCustomerActivity extends AppCompatActivity {
 
-    private static final String API_UPDATE = "http://batam.shop/api_5psi/lastminute/jsm-api/api/v1/Customer.php?method=put&id=5";
+//    private static final String API_UPDATE = "http://batam.shop/api_5psi/lastminute/jsm-api/api/v1/Customer.php?method=put&id=5";
+    private static final String API_UPDATE="http://www.jambisuksesmandiri.erwinkho.com/jsm-api/api/v1/Customer.php?method=put";
 
     Customer customer;
     EditText edtCustomerName, edtCustomerAddress, edtCustomerContact, edtCustomerCity, edtCustomerCountry;

@@ -13,11 +13,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.jsm_project.R;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 class CustomerAdapter extends ArrayAdapter<Customer> {
+    private static final String API_DLT="http://www.jambisuksesmandiri.erwinkho.com/jsm-api/api/v1/Customer.php?method=delete";
+
     private List<Customer> customerList;
     private Context context;
 
@@ -48,7 +59,7 @@ class CustomerAdapter extends ArrayAdapter<Customer> {
         customerCountry.setText(customerdata.getCustomerCountry());
 
 
-        Button btn_edit_customer = listViewCustomer.findViewById(R.id.btn_edit);
+        Button btn_edit_customer = listViewCustomer.findViewById(R.id.btn_edit_customer);
         btn_edit_customer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +75,48 @@ class CustomerAdapter extends ArrayAdapter<Customer> {
 
             }
         });
+
+        Button btn_dlt_customer = listViewCustomer.findViewById(R.id.btn_delete_customer);
+        btn_dlt_customer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    RequestQueue requestQueue = Volley.newRequestQueue(context);
+                    StringRequest stringRequest = new StringRequest(
+                            Request.Method.POST,
+                            API_DLT,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    Intent intent = new Intent(context, CustomerActivity.class);
+                                    context.startActivity(intent);
+
+                                }
+                            },
+
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    error.printStackTrace();
+                                }
+                            }
+                    ){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<>();
+                            String id_customer = String.valueOf(customerList.get(position).getId());
+                            params.put("id", id_customer);
+                            return params;
+                        }
+                    };
+                    requestQueue.add(stringRequest);
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
         return listViewCustomer;
     }
 

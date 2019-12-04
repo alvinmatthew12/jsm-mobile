@@ -78,7 +78,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_edit"
+                android:id="@+id/btn_edit_customer"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
@@ -87,12 +87,14 @@
                 android:focusable="true"/>
 
             <Button
-                android:id="@+id/btn_delete"
+                android:id="@+id/btn_delete_customer"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/delete" />
+                android:background="@drawable/delete"
+                android:onClick="deleteCustomer"
+                android:focusable="true"/>
 
         </LinearLayout>
 
