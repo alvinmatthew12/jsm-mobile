@@ -27,7 +27,6 @@ public class EditCustomerActivity extends AppCompatActivity {
 
     Customer customer;
     EditText edtCustomerName, edtCustomerAddress, edtCustomerContact, edtCustomerCity, edtCustomerCountry;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +80,8 @@ public class EditCustomerActivity extends AppCompatActivity {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> params = new HashMap<>();
+                    String id_customer = String.valueOf(customer.getId());
+                    params.put("id", id_customer);
                     params.put("name",  edtCustomerName.getText().toString());
                     params.put("address", edtCustomerAddress.getText().toString());
                     params.put("contact_no", edtCustomerContact.getText().toString());
