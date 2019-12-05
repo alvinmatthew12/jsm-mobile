@@ -33,7 +33,8 @@ import java.util.List;
 import java.util.Map;
 
 public class CustomerActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
-       private static final String API_GET="http://www.jambisuksesmandiri.erwinkho.com/jsm-api/api/v1/Customer.php?method=get&type=all";
+//    private static final String API_GET="http://batam.shop/api_5psi/lastminute/jsm-api/api/v1/Customer.php?method=get";
+    private static final String API_GET="http://www.jambisuksesmandiri.erwinkho.com/jsm-api/api/v1/Customer.php?method=get&type=all";
 //    private static final String API_DLT="http://batam.shop/api_5psi/lastminute/jsm-api/api/v1/Customer.php?method=post";
 
     private Context context;

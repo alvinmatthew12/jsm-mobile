@@ -2,6 +2,7 @@ package com.example.jsm_project.Customer;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.jsm_project.MainActivity;
 import com.example.jsm_project.R;
 
 import java.util.HashMap;
@@ -72,7 +75,6 @@ class CustomerAdapter extends ArrayAdapter<Customer> {
                 intent.putExtra("city", customerList.get(position).getCustomerCity());
                 intent.putExtra("country", customerList.get(position).getCustomerCountry());
                 context.startActivity(intent);
-
             }
         });
 
@@ -81,7 +83,8 @@ class CustomerAdapter extends ArrayAdapter<Customer> {
             @Override
             public void onClick(View v) {
                 try{
-                    RequestQueue requestQueue = Volley.newRequestQueue(context);
+                    final Context context = getContext();
+                    RequestQueue requestQueue = Volley.newRequestQueue(getContext());
                     StringRequest stringRequest = new StringRequest(
                             Request.Method.POST,
                             API_DLT,
@@ -106,7 +109,9 @@ class CustomerAdapter extends ArrayAdapter<Customer> {
                             Map<String, String> params = new HashMap<>();
                             String id_customer = String.valueOf(customerList.get(position).getId());
                             params.put("id", id_customer);
+
                             return params;
+
                         }
                     };
                     requestQueue.add(stringRequest);

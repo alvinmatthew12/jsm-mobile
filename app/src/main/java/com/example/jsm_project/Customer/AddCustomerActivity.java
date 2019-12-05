@@ -25,8 +25,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddCustomerActivity extends AppCompatActivity {
-//    private static final String API_INSERT = "http://batam.shop/api_5psi/lastminute/jsm-api/api/v1/Customer.php?method=post";
-      private static final String API_INSERT="http://www.jambisuksesmandiri.erwinkho.com/jsm-api/api/v1/Customer.php?method=post";
+//    private static final String API_INSERT = "http://batam.shop/rightshop/insertproduct.php";
+      private static final String API_INSERT = "http://www.jambisuksesmandiri.erwinkho.com/jsm-api/api/v1/Customer.php?method=post";
 
     EditText edtCustomerName, edtCustomerAddress, edtCustomerContact, edtCustomerCity, edtCustomerCountry;
 
@@ -63,13 +63,6 @@ public class AddCustomerActivity extends AppCompatActivity {
                         }
                     }
             ) {
-                @Override
-                public Map<String, String> getHeaders() throws AuthFailureError {
-                    Map<String, String> headers = new HashMap<>();
-                    headers.put("Accept", "application/json");
-                    headers.put("Content-Type", "application/json");
-                    return headers;
-                }
 
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
@@ -79,7 +72,6 @@ public class AddCustomerActivity extends AppCompatActivity {
                     params.put("contact_no", edtCustomerContact.getText().toString());
                     params.put("city", edtCustomerCity.getText().toString());
                     params.put("country", edtCustomerCountry.getText().toString());
-
                     return params;
                 }
             };
