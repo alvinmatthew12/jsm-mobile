@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Shipper.EditShipperActivity"></activity>
+        <activity android:name=".Container.EditContainerActivity"></activity>
+        <activity android:name=".Container.AddContainerActivity" />
+        <activity android:name=".Container.ContainerActivity" />
+        <activity android:name=".Shipper.EditShipperActivity" />
         <activity android:name=".Shipper.AddShipperActivity" />
         <activity android:name=".Customer.EditCustomerActivity" />
         <activity android:name=".Customer.AddCustomerActivity" />

@@ -1,67 +1,59 @@
-package com.example.jsm_project.Customer;
+package com.example.jsm_project.Container;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.jsm_project.HomeActivity;
+
 import com.example.jsm_project.R;
+import com.example.jsm_project.Shipper.AddShipperActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class CustomerActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
-//    private static final String API_GET="http://batam.shop/api_5psi/lastminute/jsm-api/api/v1/Customer.php?method=get";
-    private static final String API_GET="http://www.jambisuksesmandiri.erwinkho.com/jsm-api/api/v1/Customer.php?method=get&type=all";
-
+public class ContainerActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+    private static final String API_GET="http://www.jambisuksesmandiri.erwinkho.com/jsm-api/api/v1/Container.php?method=get&type=all";
     private Context context;
-    ListView lvCustomer;
-    List<Customer> customerList;
+    ListView lvContainer;
+    List<Container> containerList;
 
-    List<Customer> customerArray;
-    CustomerAdapter adapter;
+    List<Container> containerArray;
+    ContainerAdapter adapter;
     SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer);
+        setContentView(R.layout.activity_container);
 
-        lvCustomer = findViewById(R.id.lvCustomer);
-        customerList = new ArrayList<Customer>();
-        getCustomer();
+        lvContainer = findViewById(R.id.lvContainer);
+        containerList = new ArrayList<Container>();
+        getContainer();
 
 
-        searchView = findViewById(R.id.srcCustomer);
+        searchView = findViewById(R.id.srcContainer);
         searchView.setIconified(false);
         searchView.setIconifiedByDefault(true);
 
-        customerArray = new ArrayList<Customer>();
-        adapter = new CustomerAdapter(this, customerList);
-        lvCustomer.setAdapter(adapter);
+        containerArray = new ArrayList<Container>();
+        adapter = new ContainerAdapter(this, containerList);
+        lvContainer.setAdapter(adapter);
         searchView.setOnQueryTextListener(this);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -72,10 +64,10 @@ public class CustomerActivity extends AppCompatActivity implements SearchView.On
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                customerList.clear();
-                for (Customer customer: customerArray){
-                    if (customer.getCustomerName().contains(newText)) {
-                        customerList.add(customer);
+                containerList.clear();
+                for (Container container: containerArray){
+                    if (container.getContainerNo().contains(newText)) {
+                        containerList.add(container);
                     }
                 }
                 adapter.notifyDataSetChanged();
@@ -83,11 +75,11 @@ public class CustomerActivity extends AppCompatActivity implements SearchView.On
             }
         });
 
-        Button btn_add = findViewById(R.id.btn_add_customer);
+        Button btn_add = findViewById(R.id.btn_add_container);
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AddCustomerActivity.class);
+                Intent intent = new Intent(getApplicationContext(), AddContainerActivity.class);
                 startActivity(intent);
 
             }
@@ -95,7 +87,7 @@ public class CustomerActivity extends AppCompatActivity implements SearchView.On
 
     }
 
-    public void getCustomer() {
+    public void getContainer() {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET, API_GET, null, new Response.Listener<JSONArray>() {
@@ -104,19 +96,17 @@ public class CustomerActivity extends AppCompatActivity implements SearchView.On
                 try {
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject jsonObject = response.getJSONObject(i);
-                        Customer customer = new Customer(
+                        Container container = new Container(
                                 jsonObject.getInt("id"),
+                                jsonObject.getString("no"),
                                 jsonObject.getString("name"),
-                                jsonObject.getString("address"),
-                                jsonObject.getString("contact_no"),
-                                jsonObject.getString("city"),
-                                jsonObject.getString("country")
+                                jsonObject.getString("bl_id")
                         );
-                        customerList.add(customer);
-                        customerArray.add(customer);
+                        containerList.add(container);
+                        containerArray.add(container);
                     }
-                    CustomerAdapter customerAdapter = new CustomerAdapter(getApplicationContext(), customerList);
-                    lvCustomer.setAdapter(customerAdapter);
+                    ContainerAdapter customerAdapter = new ContainerAdapter(getApplicationContext(), containerList);
+                    lvContainer.setAdapter(customerAdapter);
                 } catch (Exception e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -135,7 +125,6 @@ public class CustomerActivity extends AppCompatActivity implements SearchView.On
     }
 
 
-
     @Override
     public boolean onQueryTextSubmit(String query) {
         return false;
@@ -143,18 +132,9 @@ public class CustomerActivity extends AppCompatActivity implements SearchView.On
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        if(customerList.contains(newText)){
+        if(containerList.contains(newText)){
             adapter.getFilter().filter(newText);
         }
         return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        // super.onBackPressed(); commented this line in order to disable back press
-        //Write your code here
-        Intent intent = new Intent(CustomerActivity.this, HomeActivity.class);
-        startActivity(intent);
-        finish();
     }
 }

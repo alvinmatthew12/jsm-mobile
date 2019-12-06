@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.jsm_project.HomeActivity;
 import com.example.jsm_project.R;
 
 import java.util.HashMap;
@@ -95,5 +96,14 @@ public class EditCustomerActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed(); commented this line in order to disable back press
+        //Write your code here
+       Intent intent = new Intent(EditCustomerActivity.this, CustomerActivity.class);
+       startActivity(intent);
+       finish();
     }
 }

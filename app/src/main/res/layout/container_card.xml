@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,54 +20,34 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtCustomerName"
+                android:id="@+id/txtContainerNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
-                android:text="Customer Name"
+                android:text="Container No."
                 android:textColor="#fff" />
 
             <TextView
-                android:id="@+id/txtCustomerAddress"
+                android:id="@+id/txtContainerName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
-                android:text="Customer Address"
+                android:text="Container Name"
                 android:textColor="#fff" />
 
             <TextView
-                android:id="@+id/txtCustomerContact"
+                android:id="@+id/txtBlId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
-                android:text="Customer Contact"
-                android:textColor="#fff" />
-
-            <TextView
-                android:id="@+id/txtCustomerCity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="5dp"
-                android:text="Customer City"
-                android:textColor="#fff" />
-
-            <TextView
-                android:id="@+id/txtCustomerCountry"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="15dp"
-                android:text="Customer Country"
+                android:text="BL ID"
                 android:textColor="#fff" />
 
         </LinearLayout>
@@ -78,7 +58,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_edit_customer"
+                android:id="@+id/btn_edit_container"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
@@ -87,7 +67,7 @@
                 android:focusable="true"/>
 
             <Button
-                android:id="@+id/btn_delete_customer"
+                android:id="@+id/btn_delete_container"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
@@ -96,7 +76,5 @@
                 android:focusable="true"/>
 
         </LinearLayout>
-
     </LinearLayout>
-
 </LinearLayout>
