@@ -3,7 +3,10 @@ package com.example.jsm_project.Shipper;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -14,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.jsm_project.Customer.AddCustomerActivity;
 import com.example.jsm_project.R;
 
 import org.json.JSONArray;
@@ -23,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShipperActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
-    private static final String API_GET="http://batam.shop/api_5psi/lastminute/jsm-api/api/v1/Shipper.php?method=get";
+    private static final String API_GET="http://www.jambisuksesmandiri.erwinkho.com/jsm-api/api/v1/Shipper.php?method=get&type=all";
 
     private Context context;
     ListView lvShipper;
@@ -67,6 +71,16 @@ public class ShipperActivity extends AppCompatActivity implements SearchView.OnQ
                 }
                 adapter.notifyDataSetChanged();
                 return true;
+            }
+        });
+
+        Button btn_add = findViewById(R.id.btn_add_shipper);
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),AddShipperActivity.class);
+                startActivity(intent);
+
             }
         });
     }

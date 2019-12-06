@@ -43,6 +43,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent (HomeActivity.this, CustomerActivity.class);
                 startActivity(i);
+                finish();
 
             }
         });
@@ -52,6 +53,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent (HomeActivity.this, ShipperActivity.class);
                 startActivity(i);
+                finish();
             }
         });
     }

@@ -12,6 +12,9 @@ public class Shipper {
         this.shipperCity = shipperCity;
         this.shipperCountry = shipperCountry;
     }
+    public int getId() {
+        return id;
+    }
 
     public String getShipperName() {
         return shipperName;
@@ -33,8 +36,9 @@ public class Shipper {
         return shipperCountry;
     }
 
-    public int getId() {
-        return id;
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setShipperName(String shipperName) {
@@ -57,8 +61,5 @@ public class Shipper {
         this.shipperCountry = shipperCountry;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
 }

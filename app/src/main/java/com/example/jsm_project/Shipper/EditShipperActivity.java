@@ -1,8 +1,7 @@
-package com.example.jsm_project.Customer;
+package com.example.jsm_project.Shipper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,30 +15,30 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.jsm_project.Customer.Customer;
+import com.example.jsm_project.Customer.CustomerActivity;
 import com.example.jsm_project.R;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class EditCustomerActivity extends AppCompatActivity {
-
+public class EditShipperActivity extends AppCompatActivity {
     private static String API_UPDATE;
-    public int idcustomer;
-    Customer customer;
-    EditText edtCustomerName, edtCustomerAddress, edtCustomerContact, edtCustomerCity, edtCustomerCountry;
+    public int idshipper;
+    Shipper shipper;
+    EditText edtShipperName, edtShipperAddress, edtShipperContact, edtShipperCity, edtShipperCountry;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_customer);
-
-        edtCustomerName = findViewById(R.id.edtCustomerName);
-        edtCustomerAddress = findViewById(R.id.edtCustomerAddress);
-        edtCustomerContact = findViewById(R.id.edtCustomerContact);
-        edtCustomerCity = findViewById(R.id.edtCustomerCity);
-        edtCustomerCountry = findViewById(R.id.edtCustomerCountry);
+        setContentView(R.layout.activity_edit_shipper);
+        edtShipperName = findViewById(R.id.edtShipperName);
+        edtShipperAddress = findViewById(R.id.edtShipperAddress);
+        edtShipperContact = findViewById(R.id.edtShipperContact);
+        edtShipperCity = findViewById(R.id.edtShipperCity);
+        edtShipperCountry = findViewById(R.id.edtShipperCountry);
 
         Bundle extras = getIntent().getExtras();
-        customer = new Customer(
+        shipper = new Shipper (
                 extras.getInt("id"),
                 extras.getString("name"),
                 extras.getString("address"),
@@ -47,25 +46,26 @@ public class EditCustomerActivity extends AppCompatActivity {
                 extras.getString("city"),
                 extras.getString("country")
         );
-        idcustomer = extras.getInt("id");
-        edtCustomerName.setText(customer.getCustomerName());
-        edtCustomerAddress.setText(customer.getCustomerAddress());
-        edtCustomerContact.setText(customer.getCustomerContact());
-        edtCustomerCity.setText(customer.getCustomerCity());
-        edtCustomerCountry.setText(customer.getCustomerCountry());
+
+        idshipper = extras.getInt("id");
+        edtShipperName.setText(shipper.getShipperName());
+        edtShipperAddress.setText(shipper.getShipperAddress());
+        edtShipperContact.setText(shipper.getShipperContact());
+        edtShipperCity.setText(shipper.getShipperCity());
+        edtShipperCountry.setText(shipper.getShipperCountry());
     }
 
-    public void editCustomer(View view) {
+    public void editShipper(View view) {
         try {
-            API_UPDATE="http://www.jambisuksesmandiri.erwinkho.com/jsm-api/api/v1/Customer.php?method=put&id="+idcustomer;
+            API_UPDATE = "http://www.jambisuksesmandiri.erwinkho.com/jsm-api/api/v1/Shipper.php?method=put&id="+idshipper;
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             StringRequest stringRequest = new StringRequest(
-                    Request.Method.POST, API_UPDATE, new Response.Listener<String>() {
+                    Request.Method.POST, API_UPDATE , new Response.Listener<String>() {
 
                 @Override
                 public void onResponse(String response) {
                     Log.d("asd", response);
-                    Intent intent = new Intent(getApplicationContext(), CustomerActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), ShipperActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -81,13 +81,11 @@ public class EditCustomerActivity extends AppCompatActivity {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> params = new HashMap<>();
-                    String id_customer = String.valueOf(customer.getId());
-                    params.put("id", id_customer);
-                    params.put("name",  edtCustomerName.getText().toString());
-                    params.put("address", edtCustomerAddress.getText().toString());
-                    params.put("contact_no", edtCustomerContact.getText().toString());
-                    params.put("city", edtCustomerCity.getText().toString());
-                    params.put("country", edtCustomerCountry.getText().toString());
+                    params.put("name",  edtShipperName.getText().toString());
+                    params.put("address", edtShipperAddress.getText().toString());
+                    params.put("contact_no", edtShipperContact.getText().toString());
+                    params.put("city", edtShipperCity.getText().toString());
+                    params.put("country", edtShipperCountry.getText().toString());
                     return params;
                 }
             };

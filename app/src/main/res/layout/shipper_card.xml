@@ -78,20 +78,22 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_editShipper"
+                android:id="@+id/btn_edit_shipper"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="28dp"
-                android:background="@drawable/edit" />
+                android:background="@drawable/edit"
+                android:focusable="true"/>
 
             <Button
-                android:id="@+id/btn_deleteShipper"
+                android:id="@+id/btn_delete_shipper"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/delete" />
+                android:background="@drawable/delete"
+                android:focusable="true"/>
 
         </LinearLayout>
     </LinearLayout>

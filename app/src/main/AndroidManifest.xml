@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Customer.EditCustomerActivity"></activity>
+        <activity android:name=".Shipper.EditShipperActivity"></activity>
+        <activity android:name=".Shipper.AddShipperActivity" />
+        <activity android:name=".Customer.EditCustomerActivity" />
         <activity android:name=".Customer.AddCustomerActivity" />
         <activity android:name=".Shipper.ShipperActivity" />
         <activity android:name=".Customer.CustomerActivity" />
