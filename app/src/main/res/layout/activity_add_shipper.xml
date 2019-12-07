@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="315px"
         android:orientation="vertical"
-        android:background="@drawable/cust_add">
+        android:background="@drawable/shipper_add_header">
     </LinearLayout>
 
     <LinearLayout

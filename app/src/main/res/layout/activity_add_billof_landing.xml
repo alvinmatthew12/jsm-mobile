@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Shipper.EditShipperActivity">
+    tools:context=".BillofLanding.AddBillofLandingActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="315px"
         android:orientation="vertical"
-        android:background="@drawable/shipper_edit_header">
+        android:background="@drawable/bill_of_landing_add_header">
     </LinearLayout>
 
     <LinearLayout
@@ -48,18 +48,18 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txtName"
+            android:id="@+id/txtBlNo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="22dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="20dp"
-            android:text="Name :"
+            android:text="No BL:"
             android:textColor="#d30506"
             android:textSize="18dp" />
 
         <EditText
-            android:id="@+id/edtShipperName"
+            android:id="@+id/edtBlNo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -68,87 +68,105 @@
             android:layout_marginEnd="20dp"/>
 
         <TextView
-            android:id="@+id/txtAddress"
+            android:id="@+id/txtShippingDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="22dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:text="Address :"
+            android:text="Shipping Date :"
             android:textColor="#d30506"
             android:textSize="18dp" />
 
         <EditText
-            android:id="@+id/edtShipperAddress"
+            android:id="@+id/edtShippingDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="text|date"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"/>
 
         <TextView
-            android:id="@+id/txtContact"
+            android:id="@+id/txtDateofReceipt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="22dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:text="Contact :"
+            android:text="Date Of Receipt :"
             android:textColor="#d30506"
             android:textSize="18dp" />
 
         <EditText
-            android:id="@+id/edtShipperContact"
+            android:id="@+id/edtDateOfReceipt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="text|date"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"/>
 
         <TextView
-            android:id="@+id/txtCity"
+            android:id="@+id/txtShipperID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="22dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:text="City :"
+            android:text="Shipper ID :"
             android:textColor="#d30506"
             android:textSize="18dp" />
 
-        <EditText
-            android:id="@+id/edtShipperCity"
+        <Spinner
+            android:id="@+id/shipperid_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"/>
 
         <TextView
-            android:id="@+id/txtCountry"
+            android:id="@+id/txtCustomerID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="22dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:text="Country :"
+            android:text="Customer ID :"
             android:textColor="#d30506"
             android:textSize="18dp" />
 
-        <EditText
-            android:id="@+id/edtShipperCountry"
+        <Spinner
+            android:id="@+id/customerid_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"/>
+
+
+        <TextView
+            android:id="@+id/txtStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="Status :"
+            android:textColor="#d30506"
+            android:textSize="18dp" />
+
+        <Spinner
+            android:id="@+id/status_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"/>
 
         <Button
-            android:id="@+id/btn_submit_add_shipper"
+            android:id="@+id/btn_submit_add_bol"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -156,7 +174,7 @@
             android:background="@drawable/btn_custom"
             android:text="Submit"
             android:textColor="#fff"
-            android:onClick="editShipper"/>
+            android:onClick="addBol"/>
 
     </LinearLayout>
 

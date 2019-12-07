@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.jsm_project.BillofLanding.BillofLandingActivity;
+import com.example.jsm_project.Container.BillofLanding;
 import com.example.jsm_project.Container.ContainerActivity;
 import com.example.jsm_project.Customer.CustomerActivity;
 import com.example.jsm_project.Customer.EditCustomerActivity;
@@ -22,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     Button btn_customer;
     Button btn_shipper;
     Button btn_container;
+    Button btn_bol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,8 @@ public class HomeActivity extends AppCompatActivity {
         btn_customer = findViewById(R.id.btn_customer);
         btn_shipper = findViewById(R.id.btn_shipper);
         btn_container = findViewById(R.id.btn_container);
+        btn_bol = findViewById(R.id.btn_bol);
+
 
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +73,15 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent (HomeActivity.this, ContainerActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+        btn_bol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent (HomeActivity.this, BillofLandingActivity.class);
                 startActivity(i);
                 finish();
             }

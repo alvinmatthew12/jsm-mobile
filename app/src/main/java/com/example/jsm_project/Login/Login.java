@@ -37,7 +37,7 @@ public class Login extends AppCompatActivity {
     public void login() {
         String user = username.getText().toString().trim();
         String pass = password.getText().toString().trim();
-        if (user.equals("admin") && pass.equals("jambisukses")) {
+        if (user.equals("admin") && pass.equals("12345")) {
             startActivity(new Intent(Login.this, HomeActivity.class));
             finish();
             Toast.makeText(this, "Welcome Admin", Toast.LENGTH_LONG).show();

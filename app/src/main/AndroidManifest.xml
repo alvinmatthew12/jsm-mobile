@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Container.EditContainerActivity"></activity>
+        <activity android:name=".BillofLanding.EditBillofLandingActivity"></activity>
+        <activity android:name=".BillofLanding.AddBillofLandingActivity" />
+        <activity android:name=".BillofLanding.BillofLandingActivity" />
+        <activity android:name=".Container.EditContainerActivity" />
         <activity android:name=".Container.AddContainerActivity" />
         <activity android:name=".Container.ContainerActivity" />
         <activity android:name=".Shipper.EditShipperActivity" />

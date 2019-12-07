@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Container.ContainerActivity">
+    tools:context=".BillofLanding.BillofLandingActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -39,17 +39,17 @@
         android:layout_width="match_parent"
         android:layout_height="315px"
         android:orientation="vertical"
-        android:background="@drawable/container_list_header">
+        android:background="@drawable/bill_of_landing_list_header">
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="50dp"
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_add_container"
+            android:id="@+id/btn_add_Billoflanding"
             android:layout_width="112dp"
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
@@ -64,14 +64,14 @@
         android:orientation="vertical">
 
         <SearchView
-            android:id="@+id/srcContainer"
+            android:id="@+id/srcBilloflanding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
 
     <ListView
-        android:id="@+id/lvContainer"
+        android:id="@+id/lvBilloflanding"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:focusable="false"/>

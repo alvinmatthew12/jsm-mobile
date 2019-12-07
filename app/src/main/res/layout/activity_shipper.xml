@@ -39,13 +39,13 @@
         android:layout_width="match_parent"
         android:layout_height="315px"
         android:orientation="vertical"
-        android:background="@drawable/header1">
+        android:background="@drawable/shipper_list_header">
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100px"
+        android:layout_width="421dp"
+        android:layout_height="50dp"
         android:orientation="vertical">
 
         <Button
@@ -53,8 +53,8 @@
             android:layout_width="112dp"
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/add" />
     </LinearLayout>
 
