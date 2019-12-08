@@ -17,7 +17,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.jsm_project.Container.ContainerActivity;
+import com.example.jsm_project.Container.EditContainerActivity;
 import com.example.jsm_project.Customer.AddCustomerActivity;
+import com.example.jsm_project.HomeActivity;
 import com.example.jsm_project.R;
 
 import org.json.JSONArray;
@@ -135,5 +138,13 @@ public class ShipperActivity extends AppCompatActivity implements SearchView.OnQ
             adapter.getFilter().filter(newText);
         }
         return true;
+    }
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed(); commented this line in order to disable back press
+        //Write your code here
+        Intent intent = new Intent(ShipperActivity.this, HomeActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

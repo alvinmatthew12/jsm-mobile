@@ -53,15 +53,15 @@ public class AddContainerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_container);
         edtContainerNo = findViewById(R.id.edtContainerNo);
         edtContainerName = findViewById(R.id.edtContainerName);
-        edtIdBl = findViewById(R.id.edtBlId);
+//        edtIdBl = findViewById(R.id.edtBlId);
         blSpinner = new ArrayList<>();
         spinner = (Spinner)findViewById(R.id.bl_spinner);
         loadSpinnerBL();
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 bl_id = spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
-                Toast.makeText(getApplicationContext(), bl_id, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -117,11 +117,11 @@ public class AddContainerActivity extends AppCompatActivity {
                 try {
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject jsonObject = response.getJSONObject(i);
-                        String bl_id = jsonObject.getString("id");
+//                        String bl_id = jsonObject.getString("no");
                         String bl_number = jsonObject.getString("no");
                         blSpinner.add(bl_number);
                     }
-                    spinner.setAdapter(new ArrayAdapter<String>(AddContainerActivity.this, android.R.layout.simple_spinner_item, blSpinner));
+                    spinner.setAdapter(new ArrayAdapter<String>(AddContainerActivity.this, R.layout.spinnerbold_card,R.id.text, blSpinner));
 
                 } catch (Exception e) {
                     e.printStackTrace();

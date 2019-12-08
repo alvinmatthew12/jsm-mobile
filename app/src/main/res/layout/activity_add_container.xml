@@ -96,21 +96,15 @@
             android:textColor="#d30506"
             android:textSize="18dp" />
 
-        <EditText
-            android:id="@+id/edtBlId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"/>
-
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bl_spinner"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"/>
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"/>
+
 
         <Button
             android:id="@+id/btn_submit_add_container"

@@ -74,7 +74,7 @@
             android:layout_marginStart="22dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:text="Shipping Date :"
+            android:text="Shipping Date : *yyyy-mm-dd"
             android:textColor="#d30506"
             android:textSize="18dp" />
 
@@ -94,7 +94,7 @@
             android:layout_marginStart="22dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:text="Date Of Receipt :"
+            android:text="Date Of Receipt : *yyyy-mm-dd"
             android:textColor="#d30506"
             android:textSize="18dp" />
 
@@ -107,43 +107,43 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"/>
 
-        <TextView
-            android:id="@+id/txtShipperID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            android:text="Shipper ID :"
-            android:textColor="#d30506"
-            android:textSize="18dp" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtShipperID"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="22dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:text="Shipper ID :"-->
+<!--            android:textColor="#d30506"-->
+<!--            android:textSize="18dp" />-->
 
-        <Spinner
-            android:id="@+id/shipperid_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"/>
+<!--        <Spinner-->
+<!--            android:id="@+id/shipperid_spinner"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="10"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:layout_marginEnd="20dp"/>-->
 
-        <TextView
-            android:id="@+id/txtCustomerID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            android:text="Customer ID :"
-            android:textColor="#d30506"
-            android:textSize="18dp" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtCustomerID"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="22dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:text="Customer ID :"-->
+<!--            android:textColor="#d30506"-->
+<!--            android:textSize="18dp" />-->
 
-        <Spinner
-            android:id="@+id/customerid_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"/>
+<!--        <Spinner-->
+<!--            android:id="@+id/customerid_spinner"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="10"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:layout_marginEnd="20dp"/>-->
 
 
         <TextView
@@ -174,7 +174,7 @@
             android:background="@drawable/btn_custom"
             android:text="Submit"
             android:textColor="#fff"
-            android:onClick="addBol"/>
+            android:onClick="editBillOfLanding"/>
 
     </LinearLayout>
 

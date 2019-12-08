@@ -93,18 +93,26 @@
             android:layout_marginStart="22dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:text="BL ID :"
+            android:text="No BL :"
             android:textColor="#d30506"
             android:textSize="18dp" />
 
-        <EditText
-            android:id="@+id/edtBlId"
+<!--        <EditText-->
+<!--            android:id="@+id/edtBlId"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="10"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:layout_marginEnd="20dp"/>-->
+        <Spinner
+            android:id="@+id/spinner_blno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"/>
+
 
         <Button
             android:id="@+id/btn_submit_add_container"

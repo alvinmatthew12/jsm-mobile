@@ -19,6 +19,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
+import com.example.jsm_project.BillofLanding.BillofLandingActivity;
+import com.example.jsm_project.HomeActivity;
 import com.example.jsm_project.R;
 import com.example.jsm_project.Shipper.AddShipperActivity;
 
@@ -136,5 +138,13 @@ public class ContainerActivity extends AppCompatActivity implements SearchView.O
             adapter.getFilter().filter(newText);
         }
         return true;
+    }
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed(); commented this line in order to disable back press
+        //Write your code here
+        Intent intent = new Intent(ContainerActivity.this, HomeActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

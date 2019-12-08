@@ -23,6 +23,7 @@ import com.example.jsm_project.Container.BillofLanding;
 import com.example.jsm_project.Container.Container;
 import com.example.jsm_project.Container.ContainerActivity;
 import com.example.jsm_project.Container.EditContainerActivity;
+import com.example.jsm_project.Customer.EditCustomerActivity;
 import com.example.jsm_project.R;
 
 import java.util.HashMap;
@@ -63,8 +64,66 @@ public class BillofLandingAdapter extends ArrayAdapter<BillofLanding> {
         CustomerID.setText(billoflandingdata.getCustomerID());
         Status.setText(billoflandingdata.getStatus());
 
+        Button btn_edit_bol = listViewBillofLanding.findViewById(R.id.btn_edit_bl);
+        btn_edit_bol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = getContext();
+                Intent intent = new Intent(context, EditBillofLandingActivity.class);
+                intent.putExtra("id", billofLandingList.get(position).getId());
+                intent.putExtra("no", billofLandingList.get(position).getBilloflandingNo());
+                intent.putExtra("shipping_date", billofLandingList.get(position).getShippingDate());
+                intent.putExtra("date_of_receipt", billofLandingList.get(position).getDateofReceipt());
+                intent.putExtra("shipper_id", billofLandingList.get(position).getShippingID());
+                intent.putExtra("customer_id", billofLandingList.get(position).getCustomerID());
+                intent.putExtra("status", billofLandingList.get(position).getStatus());
+                context.startActivity(intent);
+            }
+        });
 
-//
+        Button btn_dlt_bl = listViewBillofLanding.findViewById(R.id.btn_delete_bl);
+        btn_dlt_bl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    final Context context = getContext();
+                    RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+                    StringRequest stringRequest = new StringRequest(
+                            Request.Method.POST,
+                            API_DLT,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    Intent intent = new Intent(context, BillofLandingActivity.class);
+                                    context.startActivity(intent);
+
+                                }
+                            },
+
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    error.printStackTrace();
+                                }
+                            }
+                    ){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<>();
+                            String id = String.valueOf(billofLandingList.get(position).getId());
+                            params.put("id", id);
+
+                            return params;
+
+                        }
+                    };
+                    requestQueue.add(stringRequest);
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
 
         return listViewBillofLanding;
     }

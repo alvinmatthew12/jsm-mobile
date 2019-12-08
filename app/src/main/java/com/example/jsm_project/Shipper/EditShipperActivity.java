@@ -15,6 +15,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.jsm_project.Container.ContainerActivity;
+import com.example.jsm_project.Container.EditContainerActivity;
 import com.example.jsm_project.Customer.Customer;
 import com.example.jsm_project.Customer.CustomerActivity;
 import com.example.jsm_project.R;
@@ -93,5 +95,14 @@ public class EditShipperActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed(); commented this line in order to disable back press
+        //Write your code here
+        Intent intent = new Intent(EditShipperActivity.this, ShipperActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
