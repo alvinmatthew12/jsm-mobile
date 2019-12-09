@@ -66,6 +66,7 @@ public class ContainerAdapter extends ArrayAdapter<Container> {
                 intent.putExtra("no", containerList.get(position).getContainerNo());
                 intent.putExtra("name", containerList.get(position).getContainerName());
                 intent.putExtra("bl_id", containerList.get(position).getBlID());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
 
@@ -85,6 +86,7 @@ public class ContainerAdapter extends ArrayAdapter<Container> {
                                 @Override
                                 public void onResponse(String response) {
                                     Intent intent = new Intent(context, ContainerActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     context.startActivity(intent);
 
                                 }

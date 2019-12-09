@@ -74,6 +74,7 @@ class CustomerAdapter extends ArrayAdapter<Customer> {
                 intent.putExtra("contact_no", customerList.get(position).getCustomerContact());
                 intent.putExtra("city", customerList.get(position).getCustomerCity());
                 intent.putExtra("country", customerList.get(position).getCustomerCountry());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });
@@ -92,6 +93,7 @@ class CustomerAdapter extends ArrayAdapter<Customer> {
                                 @Override
                                 public void onResponse(String response) {
                                     Intent intent = new Intent(context, CustomerActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     context.startActivity(intent);
 
                                 }

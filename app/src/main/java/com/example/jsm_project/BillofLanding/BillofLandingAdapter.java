@@ -77,6 +77,7 @@ public class BillofLandingAdapter extends ArrayAdapter<BillofLanding> {
                 intent.putExtra("shipper_id", billofLandingList.get(position).getShippingID());
                 intent.putExtra("customer_id", billofLandingList.get(position).getCustomerID());
                 intent.putExtra("status", billofLandingList.get(position).getStatus());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });
@@ -95,6 +96,7 @@ public class BillofLandingAdapter extends ArrayAdapter<BillofLanding> {
                                 @Override
                                 public void onResponse(String response) {
                                     Intent intent = new Intent(context, BillofLandingActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     context.startActivity(intent);
 
                                 }

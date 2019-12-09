@@ -73,6 +73,7 @@ public class ShipperAdapter extends ArrayAdapter<Shipper> {
                 intent.putExtra("contact_no", shipperList.get(position).getShipperContact());
                 intent.putExtra("city", shipperList.get(position).getShipperCity());
                 intent.putExtra("country", shipperList.get(position).getShipperCountry());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
 
@@ -92,6 +93,7 @@ public class ShipperAdapter extends ArrayAdapter<Shipper> {
                                 @Override
                                 public void onResponse(String response) {
                                     Intent intent = new Intent(context, ShipperActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     context.startActivity(intent);
 
                                 }
